@@ -65,9 +65,6 @@ typedef Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic,Eigen::ColMajor> Matr
 #ifdef G2O_HAVE_CHOLMOD
 #include "g2o/solvers/cholmod/linear_solver_cholmod.h"
 #endif
-enum {
-    PARAM_OFFSET=0,
-};
 #endif // RTABMAP_G2O
 
 #ifdef RTABMAP_ORB_SLAM2
@@ -75,7 +72,9 @@ enum {
 #include "g2o/types/types_six_dof_expmap.h"
 #include "g2o/solvers/linear_solver_eigen.h"
 #endif
-
+enum {
+    PARAM_OFFSET=0,
+};
 typedef g2o::BlockSolver< g2o::BlockSolverTraits<-1, -1> > SlamBlockSolver;
 typedef g2o::LinearSolverEigen<SlamBlockSolver::PoseMatrixType> SlamLinearEigenSolver;
 #ifdef RTABMAP_G2O
